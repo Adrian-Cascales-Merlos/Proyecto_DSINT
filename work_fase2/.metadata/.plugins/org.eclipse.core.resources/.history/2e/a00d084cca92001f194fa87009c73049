@@ -1,0 +1,42 @@
+package dsi.mitologia;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class Lugares {
+	private final String tiene_nombre;	// REQUERIDO
+	private Set<Seres> tiene_a = new HashSet<>();
+	private Set<Capacidades> capacidad_necesaria = new HashSet();
+	
+	
+	
+	public Lugares(String tiene_nombre) {
+		this.tiene_nombre = tiene_nombre;
+	}
+
+	
+	// TIENE A (seres que están en ese lugar)
+	
+	public Set<Seres> getTiene_a() {
+		return tiene_a;
+	}
+
+	public void setTiene_a(Set<Seres> tiene_a) {
+		this.tiene_a = tiene_a;
+	}
+
+	public Set<Capacidades> getCapacidad_necesaria() {
+		return capacidad_necesaria;
+	}
+
+	public void setCapacidad_necesaria(Set<Capacidades> capacidad_necesaria) {
+		this.capacidad_necesaria = capacidad_necesaria;
+	}
+
+	public String getTiene_nombre() {
+		return tiene_nombre;
+	}
+	
+	
+}

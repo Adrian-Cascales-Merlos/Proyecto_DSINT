@@ -1,0 +1,17 @@
+package dsi.mitologia;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class Lugares {
+	private final String tiene_nombre;	// REQUERIDO
+	private Set<Seres> tiene_a = new HashSet<>();
+	private Set<Capacidades> capacidad_necesaria = new HashSet();
+	
+	public Lugares(String tiene_nombre) {
+		this.tiene_nombre = tiene_nombre;
+	}
+	
+	
+}

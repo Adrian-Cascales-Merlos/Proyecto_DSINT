@@ -1,0 +1,7 @@
+package dsi.mitologia;
+
+public class Lugares {
+	private final String tiene_nombre;	// REQUERIDO
+	private Set<Seres> tiene_a = new HashSet<>();
+	private Set<Capacidades> capacidad_necesaria = new HashSet();
+}

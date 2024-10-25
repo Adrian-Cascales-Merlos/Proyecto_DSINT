@@ -1,0 +1,15 @@
+package dsi.mitologia;
+
+import java.util.List;
+
+public abstract class Seres {
+	private String tiene_nombre;
+	private List<Capacidades> tiene_capacidad;
+	private List<Estados> tiene_condicion;		// REQUERIDO
+	private List<Dioses> tiene_enojo_de;
+	private List<Dioses> tiene_favor_de;
+	private List<Seres> tiene_localizado_a;
+	private List<Objetos> tiene_objeto;
+	private Lugares ubicado_en;
+}
+

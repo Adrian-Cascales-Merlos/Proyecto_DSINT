@@ -1,0 +1,12 @@
+package dsi.mitologia;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class Dioses extends Seres {
+	
+	public Dioses(String tiene_nombre, Set<Estados> tiene_condicion) {
+		super(tiene_nombre, tiene_condicion);
+		this.setTiene_capacidad(new LinkedList<Capacidades>() );		// TODO Cuando tenga la clase "Capacidades" creada
+	}
+}

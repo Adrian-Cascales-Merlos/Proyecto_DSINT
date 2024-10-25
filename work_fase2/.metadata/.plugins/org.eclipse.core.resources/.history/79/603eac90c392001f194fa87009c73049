@@ -1,0 +1,134 @@
+package dsi.mitologia;
+
+import java.util.HashSet;		// TODO Hay que reescribir el equals y el hashcode
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
+public abstract class Seres {
+	private final String tiene_nombre;				// REQUERIDO
+	private List<Capacidades> tiene_capacidad = new LinkedList<>();			// Es el único que debe ser una lista (pq puede tener varios objetos con mismas capacidades)
+	private Set<Estados> tiene_condicion = new HashSet<>();		// REQUERIDO
+	private Set<Dioses> tiene_enojo_de = new HashSet<>();
+	private Set<Dioses> tiene_favor_de = new HashSet<>();
+	private Set<Seres> tiene_localizado_a = new HashSet<>();
+	private Set<Objetos> tiene_objeto = new HashSet<>();
+	private Lugares ubicado_en;
+	
+	
+	
+	public Seres(String tiene_nombre, Set<Estados> tiene_condicion) {
+		super();
+		this.tiene_nombre = tiene_nombre;
+		this.tiene_condicion = tiene_condicion;
+	}
+	
+	
+	// CAPACIDADES
+	
+	public List<Capacidades> getTiene_capacidad() {
+		return tiene_capacidad;
+	}
+	
+	public void setTiene_capacidad(List<Capacidades> tiene_capacidad) {
+		this.tiene_capacidad = tiene_capacidad;
+	}
+	
+	public void addCapacidad(Capacidades capacidad) {		// TODO REVISAR
+		this.tiene_capacidad.add(capacidad);				// Aquí permitimos añadir capacidades repetidas.
+	}
+	
+	public void removeCapacidad(Capacidades capacidad) {	// TODO REVISAR
+		if ( this.tiene_capacidad.contains(capacidad) ) {
+			this.tiene_capacidad.remove(capacidad);		// En realidad el "remove" ya comprueba si está el objeto.
+		}
+	}
+	
+	
+	// CONDICIONES (estados)
+	
+	public List<Estados> getTiene_condicion() {
+		return tiene_condicion;
+	}
+	
+	public void setTiene_condicion(List<Estados> tiene_condicion) {
+		this.tiene_condicion = tiene_condicion;
+	}
+	
+	public void addEstado(Estados estado) {		// TODO REVISAR
+		this.tiene_condicion.add(estado);
+	}
+	
+	public void removeEstado(Estados estado) {	// TODO REVISAR
+		if ( this.tiene_condicion.contains(estado) ) {
+			this.tiene_condicion.remove(estado);		// En realidad el "remove" ya comprueba si está el objeto.
+		}
+	}
+	
+	
+	// ENOJOS (enfados)
+	
+	public List<Dioses> getTiene_enojo_de() {
+		return tiene_enojo_de;
+	}
+	
+	public void setTiene_enojo_de(List<Dioses> tiene_enojo_de) {
+		this.tiene_enojo_de = tiene_enojo_de;
+	}
+	
+	public void addEnojo(Dioses dios) {		// TODO REVISAR
+		this.tiene_enojo_de.add(dios);
+	}
+	
+	public void removeEnojo(Dioses dios) {	// TODO REVISAR
+		if ( this.tiene_enojo_de.contains(dios) ) {
+			this.tiene_enojo_de.remove(dios);		// En realidad el "remove" ya comprueba si está el objeto.
+		}
+	}
+	
+	
+	
+	
+	public List<Dioses> getTiene_favor_de() {
+		return tiene_favor_de;
+	}
+	
+	public void setTiene_favor_de(List<Dioses> tiene_favor_de) {
+		this.tiene_favor_de = tiene_favor_de;
+	}
+	
+	
+	public List<Seres> getTiene_localizado_a() {
+		return tiene_localizado_a;
+	}
+	
+	public void setTiene_localizado_a(List<Seres> tiene_localizado_a) {
+		this.tiene_localizado_a = tiene_localizado_a;
+	}
+	
+	
+	public List<Objetos> getTiene_objeto() {
+		return tiene_objeto;
+	}
+	
+	public void setTiene_objeto(List<Objetos> tiene_objeto) {
+		this.tiene_objeto = tiene_objeto;
+	}
+	
+	
+	public Lugares getUbicado_en() {
+		return ubicado_en;
+	}
+	
+	public void setUbicado_en(Lugares ubicado_en) {
+		this.ubicado_en = ubicado_en;
+	}
+	
+	
+	public String getTiene_nombre() {
+		return tiene_nombre;
+	}
+	
+	
+}
+

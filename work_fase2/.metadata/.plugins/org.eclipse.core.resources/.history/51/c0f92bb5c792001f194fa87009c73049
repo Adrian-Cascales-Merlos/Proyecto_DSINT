@@ -1,0 +1,12 @@
+package dsi.mitologia;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class Objetos {
+	private final String tiene_nombre;	// REQUERIDO
+	private EstadoObjeto tiene_estado;	// REQUERIDO // TODO Este estado es distinto del estado de los Seres (yo creo que habría que poner un enum)
+	private Seres en_manos_de;
+	private List<Capacidades> tiene_capacidad = new LinkedList<>();	// REQUERIDO
+	
+}
