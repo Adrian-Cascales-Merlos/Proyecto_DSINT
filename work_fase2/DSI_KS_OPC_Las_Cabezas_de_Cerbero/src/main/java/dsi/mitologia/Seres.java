@@ -4,6 +4,8 @@ import java.util.HashSet;		// TODO Creo que hay que reescribir el equals y el ha
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.HashSet;
+import java.util.Set;
 
 // TODO PREGUNTA: ¿Habría que poner Set y List o únicamente Collection?
 
@@ -64,11 +66,11 @@ public abstract class Seres {
 		this.tiene_condicion = tiene_condicion;
 	}
 	
-	public void addEstado(Estados estado) {		// TODO REVISAR
+	public void addCondicion(Estados estado) {		// TODO REVISAR
 		this.tiene_condicion.add(estado);
 	}
 	
-	public void removeEstado(Estados estado) {	// TODO REVISAR
+	public void removeCondicion(Estados estado) {	// TODO REVISAR
 		if ( this.tiene_condicion.remove(estado) ) { 	// El "remove" ya comprueba si está o no el objeto.
 			// Estado quitado
 		}

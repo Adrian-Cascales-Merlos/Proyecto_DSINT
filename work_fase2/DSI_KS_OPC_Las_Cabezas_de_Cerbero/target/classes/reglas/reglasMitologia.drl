@@ -4,7 +4,7 @@ package reglas
 //list any import classes here. // Aquí debemos poner todas las clases involucradas en las reglas
 import dsi.mitologia.Seres;
 import dsi.mitologia.Estados;
-
+import dsi.mitologia.Objetos;
 
 //declare any global variables here
 
@@ -14,8 +14,8 @@ rule "Si X mata a Y se queda con los objetos de Y"
     when
         //conditions
     	//Pues cuando se inserte el hecho de X mata a Y
-    	$x : Seres()
-    	$y : Seres()
+    	$x : Seres();
+    	$y : Seres();
     then
         //actions
         modify($x)
@@ -26,7 +26,7 @@ rule "Si X mata a Y se queda con los objetos de Y"
         modify($y)
         {
        		$y.removeAllObjeto();	// Eliminamos todos los objetos de Y
-       		$y.setEstado(Estados.MUERTO);
+       		$y.setTiene_condicion(new HashSet<Estados>(Estados.MUERTO));	// REVISAR
         }
         
         System.out.println($x.getTiene_nombre() + " ha matado y tomado los objetos de " + $y.getTiene_nombre()); // PA DEPURAR
@@ -51,7 +51,8 @@ rule "Si X apresa a Y se queda con los objetos de Y"
         modify($y)
         {
        		$y.removeAllObjeto();	// Eliminamos todos los objetos de Y
-       		$y.setEstado(Estados.APRESADO);
+       		$y.removeCondicion(Estados.LIBRE);
+       		$y.addCondicion(Estados.APRESADO);
         }
         
         System.out.println($x.getTiene_nombre() + "ha apresado y tomado los objetos de " + $y.getTiene_nombre()); // PA DEPURAR
@@ -64,12 +65,13 @@ rule "Si X libera a Y entonces Y es libre"
     when
         //conditions
     	//Pues cuando se inserte el hecho de X libera a Y
-    	$y : Seres(tiene_condicion == Estados.APRESADO)
+    	$y : Seres(tiene_condicion == Estados.APRESADO);
     then
         //actions        
         modify($y)
         {
-       		$y.setEstado(Estados.LIBRE);
+       		$y.removeCondicion(Estados.APRESADO);
+       		$y.addCondicion(Estados.LIBRE);
         }
         
         System.out.println($x.getTiene_nombre() + " ha liberado a " + $y.getTiene_nombre()); // PA DEPURAR
@@ -95,12 +97,13 @@ rule "Si X mata a Y e Y tiene preso a Z entonces X libera a Z"
         modify($y)
         {
        		$y.removeAllObjeto();	// Eliminamos todos los objetos de Y
-       		$y.setEstado(Estados.MUERTO);
+       		$y.setTiene_condicion(new HashSet<Estados>(Estados.MUERTO));	// REVISAR
         }
         
         modify($z)
         {
-        	$z.setEstado(Estados.LIBRE);
+        	$z.removeCondicion(Estados.APRESADO);
+       		$z.addCondicion(Estados.LIBRE);
         }
         
         //TODO: No sé si se podría hacer esto
@@ -142,7 +145,7 @@ rule "Si X roba a Y el objeto Z entonces X se queda con Z"
     	//Pues cuando se inserte el hecho de X roba a Y
     	$x : Seres()
     	$y : Seres()
-    	$z : Seres()
+    	$z : Objetos()
     then
         //actions
         modify($x)

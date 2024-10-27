@@ -6,4 +6,17 @@
 			<item value="org.drools.eclipse.new"/>
 		</list>
 	</section>
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.ui.wizards.export.ZipFile"/>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+	</section>
+	<section name="ZipFileExportWizard">
+		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
+		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
+		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\Samuel\OneDrive - UNIVERSIDAD DE MURCIA\4º Curso\1er Cuatri\DSINT\Prácticas\Proyecto\Fase 2\DSI_KS_OPC_Las_Cabezas_de_Cerbero.zip"/>
+		</list>
+	</section>
 </section>
