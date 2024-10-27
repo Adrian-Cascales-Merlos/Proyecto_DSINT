@@ -1,18 +1,18 @@
 package dsi.mitologia;
 
-import java.util.LinkedList;
-import java.util.List;
+
+import java.util.HashSet;
 import java.util.Set;
 
 public class Objetos {
 	private final String tiene_nombre;	// REQUERIDO
-	private EstadoObjeto tiene_estado;	// REQUERIDO // TODO Este estado es distinto del estado de los Seres (yo creo que habría que poner un enum)
+	private EstadoObj tiene_estado;	// REQUERIDO
 	private Seres en_manos_de;
-	private List<Capacidades> tiene_capacidad = new LinkedList<>();	// REQUERIDO
+	private Set<Capacidades> tiene_capacidad = new HashSet<>();	// REQUERIDO
 	
 	
 	
-	public Objetos(String tiene_nombre, EstadoObjeto tiene_estado, List<Capacidades> tiene_capacidad) {
+	public Objetos(String tiene_nombre, EstadoObj tiene_estado, Set<Capacidades> tiene_capacidad) {
 		this.tiene_nombre = tiene_nombre;
 		this.tiene_estado = tiene_estado;
 		this.tiene_capacidad = tiene_capacidad;
@@ -21,11 +21,11 @@ public class Objetos {
 
 	// ESTADO
 
-	public EstadoObjeto getTiene_estado() {
+	public EstadoObj getTiene_estado() {
 		return tiene_estado;
 	}
 
-	public void setTiene_estado(EstadoObjeto tiene_estado) {
+	public void setTiene_estado(EstadoObj tiene_estado) {
 		this.tiene_estado = tiene_estado;
 	}
 
@@ -49,16 +49,16 @@ public class Objetos {
 
 	// CAPACIDADES
 
-	public List<Capacidades> getTiene_capacidad() {
+	public Set<Capacidades> getTiene_capacidad() {
 		return tiene_capacidad;
 	}
 
-	public void setTiene_capacidad(List<Capacidades> tiene_capacidad) {
+	public void setTiene_capacidad(Set<Capacidades> tiene_capacidad) {
 		this.tiene_capacidad = tiene_capacidad;
 	}
 	
 	public void removeAllCapacidad() {	// TODO REVISAR
-		this.tiene_capacidad = null;	// Lo he puesto por si algún objeto se destruye, no tiene ninguna capacidad.
+		this.tiene_capacidad.clear();	// Lo he puesto por si algún objeto se destruye, no tiene ninguna capacidad.
 	}
 
 	

@@ -2,6 +2,11 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="org.kie.api.KieServices"/>
+    <fullyQualifiedTypeName name="org.kie.api.KieBaseConfiguration"/>
+    <fullyQualifiedTypeName name="org.kie.api.runtime.KieContainer"/>
+    <fullyQualifiedTypeName name="org.kie.api.runtime.KieSessionConfiguration"/>
+    <fullyQualifiedTypeName name="org.kie.api.runtime.KieSession"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
     <fullyQualifiedTypeName name="java.util.HashSet"/>
 </qualifiedTypeNameHistroy>

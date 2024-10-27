@@ -6,4 +6,13 @@
 			<item value="org.drools.eclipse.new"/>
 		</list>
 	</section>
+	<section name="SmartImportWizard">
+		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\ReposGitHub\Proyecto_DSINT\work_fase2\DSI_KS_OPC_Las_Cabezas_de_Cerbero"/>
+		</list>
+	</section>
 </section>

@@ -1,9 +1,11 @@
 package dsi.mitologia;
 
-import java.util.HashSet;		// TODO Hay que reescribir el equals y el hashcode
+import java.util.HashSet;		// TODO Creo que hay que reescribir el equals y el hashcode
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+
+// TODO PREGUNTA: ¿Habría que poner Set y List o únicamente Collection?
 
 public abstract class Seres {
 	private final String tiene_nombre;				// REQUERIDO
@@ -54,7 +56,7 @@ public abstract class Seres {
 	
 	// CONDICIONES (estados)
 	
-	public List<Estados> getTiene_condicion() {
+	public Set<Estados> getTiene_condicion() {
 		return tiene_condicion;
 	}
 	
@@ -78,11 +80,11 @@ public abstract class Seres {
 	
 	// ENOJOS (enfados)
 	
-	public List<Dioses> getTiene_enojo_de() {
+	public Set<Dioses> getTiene_enojo_de() {
 		return tiene_enojo_de;
 	}
 	
-	public void setTiene_enojo_de(List<Dioses> tiene_enojo_de) {
+	public void setTiene_enojo_de(Set<Dioses> tiene_enojo_de) {
 		this.tiene_enojo_de = tiene_enojo_de;
 	}
 	
@@ -102,11 +104,11 @@ public abstract class Seres {
 	
 	// FAVORES (ayudas)
 	
-	public List<Dioses> getTiene_favor_de() {
+	public Set<Dioses> getTiene_favor_de() {
 		return tiene_favor_de;
 	}
 	
-	public void setTiene_favor_de(List<Dioses> tiene_favor_de) {
+	public void setTiene_favor_de(Set<Dioses> tiene_favor_de) {
 		this.tiene_favor_de = tiene_favor_de;
 	}
 	

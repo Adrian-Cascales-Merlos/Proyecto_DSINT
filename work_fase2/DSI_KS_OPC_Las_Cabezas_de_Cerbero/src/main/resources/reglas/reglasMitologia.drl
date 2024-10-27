@@ -1,8 +1,9 @@
 //created on: 25 oct 2024
 package reglas
 
-//list any import classes here.
+//list any import classes here. // Aquí debemos poner todas las clases involucradas en las reglas
 import dsi.mitologia.Seres;
+import dsi.mitologia.Estados;
 
 
 //declare any global variables here
@@ -19,16 +20,16 @@ rule "Si X mata a Y se queda con los objetos de Y"
         //actions
         modify($x)
         {
-        	$x.getTiene_objeto().addAllObjeto($y.getTiene_objeto()); // Agregamos todos los objetos de Y en X
+        	$x.addAllObjeto($y.getTiene_objeto()); // Agregamos todos los objetos de Y en X
         }
         
         modify($y)
         {
-       		$y.getTiene_objeto().removeAllObjeto();	// Eliminamos todos los objetos de Y
-       		//$y.setEstado(Estados.MUERTO)	// Todavía no hemos decidido como implementar los Estados
+       		$y.removeAllObjeto();	// Eliminamos todos los objetos de Y
+       		$y.setEstado(Estados.MUERTO);
         }
         
-        System.out.println($x.getTiene_nombre() + " ha matadk y tomado los objetos de " + $y.getTiene_nombre()); // PA DEPURAR
+        System.out.println($x.getTiene_nombre() + " ha matado y tomado los objetos de " + $y.getTiene_nombre()); // PA DEPURAR
         
 end
 
@@ -44,13 +45,13 @@ rule "Si X apresa a Y se queda con los objetos de Y"
         //actions
         modify($x)
         {
-        	$x.getTiene_objeto().addAllObjeto($y.getTiene_objeto()); // Agregamos todos los objetos de Y en X
+        	$x.addAllObjeto($y.getTiene_objeto()); // Agregamos todos los objetos de Y en X
         }
         
         modify($y)
         {
-       		$y.getTiene_objeto().removeAllObjeto();	// Eliminamos todos los objetos de Y
-       		//$y.setEstado(Estados.APRESADO)	// Todavía no hemos decidido como implementar los Estados
+       		$y.removeAllObjeto();	// Eliminamos todos los objetos de Y
+       		$y.setEstado(Estados.APRESADO);
         }
         
         System.out.println($x.getTiene_nombre() + "ha apresado y tomado los objetos de " + $y.getTiene_nombre()); // PA DEPURAR
@@ -63,12 +64,12 @@ rule "Si X libera a Y entonces Y es libre"
     when
         //conditions
     	//Pues cuando se inserte el hecho de X libera a Y
-    	$y : Seres(y.Estado != Estados.MUERTO) // No sé si se pone así
+    	$y : Seres(tiene_condicion == Estados.APRESADO)
     then
         //actions        
         modify($y)
         {
-       		//$y.setEstado(Estados.LIBRE)	// Todavía no hemos decidido como implementar los Estados
+       		$y.setEstado(Estados.LIBRE);
         }
         
         System.out.println($x.getTiene_nombre() + " ha liberado a " + $y.getTiene_nombre()); // PA DEPURAR
@@ -88,18 +89,18 @@ rule "Si X mata a Y e Y tiene preso a Z entonces X libera a Z"
         //actions
         modify($x)
         {
-        	$x.getTiene_objeto().addAllObjeto($y.getTiene_objeto()); // Agregamos todos los objetos de Y en X
+        	$x.addAllObjeto($y.getTiene_objeto()); // Agregamos todos los objetos de Y en X
         }
         
         modify($y)
         {
-       		$y.getTiene_objeto().removeAllObjeto();	// Eliminamos todos los objetos de Y
-       		//$y.setEstado(Estados.MUERTO)	// Todavía no hemos decidido como implementar los Estados
+       		$y.removeAllObjeto();	// Eliminamos todos los objetos de Y
+       		$y.setEstado(Estados.MUERTO);
         }
         
         modify($z)
         {
-        	//$z.setEstado(Estados.LIBRE)	// Todavía no hemos decidido como implementar los Estados
+        	$z.setEstado(Estados.LIBRE);
         }
         
         //TODO: No sé si se podría hacer esto
@@ -121,12 +122,12 @@ rule "Si X roba a Y entonces X se queda con todos los objetos de Y"
         //actions
         modify($x)
         {
-        	$x.getTiene_objeto().addAllObjeto($y.getTiene_objeto()); // Agregamos todos los objetos de Y en X
+        	$x.addAllObjeto($y.getTiene_objeto()); // Agregamos todos los objetos de Y en X
         }
         
         modify($y)
         {
-       		$y.getTiene_objeto().removeAllObjeto();	// Eliminamos todos los objetos de Y
+       		$y.removeAllObjeto();	// Eliminamos todos los objetos de Y
         }
         
         System.out.println($x.getTiene_nombre() + " ha robado " + $y.getTiene_nombre()); // PA DEPURAR
@@ -146,12 +147,12 @@ rule "Si X roba a Y el objeto Z entonces X se queda con Z"
         //actions
         modify($x)
         {
-        	$x.getTiene_objeto().addObjeto($z); // Agregamos todos los objetos de Y en X
+        	$x.addObjeto($z); // Agregamos todos los objetos de Y en X
         }
         
         modify($y)
         {
-       		$y.getTiene_objeto().removeObjeto($z);	// Eliminamos todos los objetos de Y
+       		$y.removeObjeto($z);	// Eliminamos el objeto Z de Y
         }
         
         System.out.println($x.getTiene_nombre() + " ha robado a " + $y.getTiene_nombre() + " el objeto " $z.getTiene_nombre()); // PA DEPURAR

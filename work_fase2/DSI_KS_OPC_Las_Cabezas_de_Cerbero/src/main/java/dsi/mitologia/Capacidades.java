@@ -1,5 +1,11 @@
 package dsi.mitologia;
 
-public class Capacidades {
-
+public enum Capacidades {
+	ANTI_CORROSIVO,
+	ESPEJO,
+	INMORTALIDAD,
+	INVISIBILIDAD,
+	PETRIFICAR,
+	SANGRE_CORROSIVA,
+	VOLAR;
 }
