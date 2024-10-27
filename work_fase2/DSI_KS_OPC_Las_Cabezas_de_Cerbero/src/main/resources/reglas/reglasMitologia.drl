@@ -2,12 +2,161 @@
 package reglas
 
 //list any import classes here.
-
+import dsi.mitologia.Seres;
 
 
 //declare any global variables here
 
 
+rule "Si X mata a Y se queda con los objetos de Y"
+
+    when
+        //conditions
+    	//Pues cuando se inserte el hecho de X mata a Y
+    	$x : Seres()
+    	$y : Seres()
+    then
+        //actions
+        modify($x)
+        {
+        	$x.getTiene_objeto().addAllObjeto($y.getTiene_objeto()); // Agregamos todos los objetos de Y en X
+        }
+        
+        modify($y)
+        {
+       		$y.getTiene_objeto().removeAllObjeto();	// Eliminamos todos los objetos de Y
+       		//$y.setEstado(Estados.MUERTO)	// Todavía no hemos decidido como implementar los Estados
+        }
+        
+        System.out.println($x.getTiene_nombre() + " ha matadk y tomado los objetos de " + $y.getTiene_nombre()); // PA DEPURAR
+        
+end
+
+
+rule "Si X apresa a Y se queda con los objetos de Y"
+
+    when
+        //conditions
+    	//Pues cuando se inserte el hecho de X aprese a Y
+    	$x : Seres()
+    	$y : Seres()
+    then
+        //actions
+        modify($x)
+        {
+        	$x.getTiene_objeto().addAllObjeto($y.getTiene_objeto()); // Agregamos todos los objetos de Y en X
+        }
+        
+        modify($y)
+        {
+       		$y.getTiene_objeto().removeAllObjeto();	// Eliminamos todos los objetos de Y
+       		//$y.setEstado(Estados.APRESADO)	// Todavía no hemos decidido como implementar los Estados
+        }
+        
+        System.out.println($x.getTiene_nombre() + "ha apresado y tomado los objetos de " + $y.getTiene_nombre()); // PA DEPURAR
+        
+end
+
+
+rule "Si X libera a Y entonces Y es libre"
+
+    when
+        //conditions
+    	//Pues cuando se inserte el hecho de X libera a Y
+    	$y : Seres(y.Estado != Estados.MUERTO) // No sé si se pone así
+    then
+        //actions        
+        modify($y)
+        {
+       		//$y.setEstado(Estados.LIBRE)	// Todavía no hemos decidido como implementar los Estados
+        }
+        
+        System.out.println($x.getTiene_nombre() + " ha liberado a " + $y.getTiene_nombre()); // PA DEPURAR
+        
+end
+
+
+rule "Si X mata a Y e Y tiene preso a Z entonces X libera a Z"
+
+    when
+        //conditions
+    	//Pues cuando se inserte el hecho de X mata a Y y este el hecho de que Y apresa a Z
+    	$x : Seres()
+    	$y : Seres()
+    	$z : Seres()
+    then
+        //actions
+        modify($x)
+        {
+        	$x.getTiene_objeto().addAllObjeto($y.getTiene_objeto()); // Agregamos todos los objetos de Y en X
+        }
+        
+        modify($y)
+        {
+       		$y.getTiene_objeto().removeAllObjeto();	// Eliminamos todos los objetos de Y
+       		//$y.setEstado(Estados.MUERTO)	// Todavía no hemos decidido como implementar los Estados
+        }
+        
+        modify($z)
+        {
+        	//$z.setEstado(Estados.LIBRE)	// Todavía no hemos decidido como implementar los Estados
+        }
+        
+        //TODO: No sé si se podría hacer esto
+        //insert(X libera a Z) //Es decir no sé si aquí se pueden insertar hechos como tal
+        
+        System.out.println($x.getTiene_nombre() + " ha matado y tomado los objetos de " + $y.getTiene_nombre() + "y ha liberado a " + $z.getTiene_nombre()); // PA DEPURAR
+        
+end
+
+
+rule "Si X roba a Y entonces X se queda con todos los objetos de Y"
+
+    when
+        //conditions
+    	//Pues cuando se inserte el hecho de X roba a Y
+    	$x : Seres()
+    	$y : Seres()
+    then
+        //actions
+        modify($x)
+        {
+        	$x.getTiene_objeto().addAllObjeto($y.getTiene_objeto()); // Agregamos todos los objetos de Y en X
+        }
+        
+        modify($y)
+        {
+       		$y.getTiene_objeto().removeAllObjeto();	// Eliminamos todos los objetos de Y
+        }
+        
+        System.out.println($x.getTiene_nombre() + " ha robado " + $y.getTiene_nombre()); // PA DEPURAR
+        
+end
+
+
+rule "Si X roba a Y el objeto Z entonces X se queda con Z"
+
+    when
+        //conditions
+    	//Pues cuando se inserte el hecho de X roba a Y
+    	$x : Seres()
+    	$y : Seres()
+    	$z : Seres()
+    then
+        //actions
+        modify($x)
+        {
+        	$x.getTiene_objeto().addObjeto($z); // Agregamos todos los objetos de Y en X
+        }
+        
+        modify($y)
+        {
+       		$y.getTiene_objeto().removeObjeto($z);	// Eliminamos todos los objetos de Y
+        }
+        
+        System.out.println($x.getTiene_nombre() + " ha robado a " + $y.getTiene_nombre() + " el objeto " $z.getTiene_nombre()); // PA DEPURAR
+        
+end
 
 
 rule "Your First Rule"

@@ -8,6 +8,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="DROOLS/Drools"/>
-	<classpathentry kind="lib" path="C:/Dsint/drools-distribution-7.74.1.Final/binaries/slf4j-simple-1.7.26.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

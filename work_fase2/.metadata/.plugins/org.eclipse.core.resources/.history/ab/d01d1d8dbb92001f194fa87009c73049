@@ -1,7 +1,0 @@
-package dsi.mitologia;
-
-import java.util.List;
-
-public abstract class Seres {
-	private List<Capacidades> tiene_capacidad
-}

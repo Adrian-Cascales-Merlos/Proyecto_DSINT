@@ -22,6 +22,11 @@ public abstract class Seres {
 		this.tiene_condicion = tiene_condicion;
 	}
 	
+	// NOMBRE
+	
+	public String getTiene_nombre() {
+		return tiene_nombre;
+	}
 	
 	// CAPACIDADES
 	
@@ -121,11 +126,11 @@ public abstract class Seres {
 	
 	// LOCALIZADO
 	
-	public List<Seres> getTiene_localizado_a() {
+	public Set<Seres> getTiene_localizado_a() {
 		return tiene_localizado_a;
 	}
 	
-	public void setTiene_localizado_a(List<Seres> tiene_localizado_a) {
+	public void setTiene_localizado_a(Set<Seres> tiene_localizado_a) {
 		this.tiene_localizado_a = tiene_localizado_a;
 	}
 	
@@ -145,16 +150,20 @@ public abstract class Seres {
 	
 	// OBJETOS
 	
-	public List<Objetos> getTiene_objeto() {
+	public Set<Objetos> getTiene_objeto() {
 		return tiene_objeto;
 	}
 	
-	public void setTiene_objeto(List<Objetos> tiene_objeto) {
-		this.tiene_objeto = tiene_objeto;
+	public void setTiene_objeto(Set<Objetos> tiene_objeto) {
+		this.tiene_objeto = (Set<Objetos>) tiene_objeto;
 	}
 	
 	public void addObjeto(Objetos objeto) {		// TODO REVISAR
 		this.tiene_objeto.add(objeto);
+	}
+	
+	public void addAllObjeto(Set<Objetos> nuevosObjetos) { // TODO REVISAR Yo creo que no es necesario devolver una copia // Para añadir todos los objetos de otro ser Y cuando X mate, robe o aprese a Y
+		this.tiene_objeto.addAll(nuevosObjetos);
 	}
 	
 	public void removeObjeto(Objetos objeto) {	// TODO REVISAR
@@ -166,6 +175,12 @@ public abstract class Seres {
 		}
 	}
 	
+	public void removeAllObjeto() {	// TODO REVISAR
+		this.tiene_objeto.clear(); 	// Se borran todos los objetos, cuando le maten, le apresen o le roben
+	}
+	
+	
+	
 	
 	// UBICACIÓN
 	
@@ -175,13 +190,6 @@ public abstract class Seres {
 	
 	public void setUbicado_en(Lugares ubicado_en) {
 		this.ubicado_en = ubicado_en;
-	}
-	
-	
-	// NOMBRE
-	
-	public String getTiene_nombre() {
-		return tiene_nombre;
 	}
 	
 	
