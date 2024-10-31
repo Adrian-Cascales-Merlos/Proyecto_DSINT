@@ -8,7 +8,7 @@ public class Objetos {
 	private final String tiene_nombre;	// REQUERIDO
 	private EstadoObj tiene_estado;	// REQUERIDO
 	private Seres en_manos_de;
-	private Set<Capacidades> tiene_capacidad = new HashSet<>();	// REQUERIDO
+	private Set<Capacidades> tiene_capacidad = new HashSet<>();	// REQUERIDO	// TODO VER QUE HACER CON ESTO
 	
 	
 	

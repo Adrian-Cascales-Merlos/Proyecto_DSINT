@@ -12,18 +12,18 @@ import java.util.Set;
 public abstract class Seres {
 	private final String tiene_nombre;				// REQUERIDO
 	private List<Capacidades> tiene_capacidad = new LinkedList<>();			// Es el único que debe ser una lista (pq puede tener varios objetos con mismas capacidades)
-	private Set<Estados> tiene_condicion = new HashSet<>();		// REQUERIDO
+	// private Set<Estados> tiene_condicion = new HashSet<>();	// TODO QUITAR
 	private Set<Dioses> tiene_enojo_de = new HashSet<>();
 	private Set<Dioses> tiene_favor_de = new HashSet<>();
 	private Set<Seres> tiene_localizado_a = new HashSet<>();
-	private Set<Objetos> tiene_objeto = new HashSet<>();
+	// private Set<Objetos> tiene_objeto = new HashSet<>();	// TODO QUITAR (Solo dejamos la clase Objeto)
 	private Lugares ubicado_en;
 	
 	
 	
-	public Seres(String tiene_nombre, Set<Estados> tiene_condicion) {
+	public Seres(String tiene_nombre) {
 		this.tiene_nombre = tiene_nombre;
-		this.tiene_condicion = tiene_condicion;
+		//	this.tiene_condicion = tiene_condicion;		//TODO QUITAR
 	}
 	
 	// NOMBRE
@@ -32,7 +32,7 @@ public abstract class Seres {
 		return tiene_nombre;
 	}
 	
-	// CAPACIDADES
+	// CAPACIDADES	TODO VER QUE HACER
 	
 	public List<Capacidades> getTiene_capacidad() {
 		return tiene_capacidad;
@@ -56,28 +56,28 @@ public abstract class Seres {
 	}
 	
 	
-	// CONDICIONES (estados)
+	// CONDICIONES (estados)	// TODO QUITAR
 	
-	public Set<Estados> getTiene_condicion() {
-		return tiene_condicion;
-	}
-	
-	public void setTiene_condicion(Set<Estados> tiene_condicion) {
-		this.tiene_condicion = tiene_condicion;
-	}
-	
-	public void addCondicion(Estados estado) {		// TODO REVISAR
-		this.tiene_condicion.add(estado);
-	}
-	
-	public void removeCondicion(Estados estado) {	// TODO REVISAR
-		if ( this.tiene_condicion.remove(estado) ) { 	// El "remove" ya comprueba si está o no el objeto.
-			// Estado quitado
-		}
-		else {
-			// No tenía ese estado
-		}
-	}
+//	public Set<Estados> getTiene_condicion() {
+//		return tiene_condicion;
+//	}
+//	
+//	public void setTiene_condicion(Set<Estados> tiene_condicion) {
+//		this.tiene_condicion = tiene_condicion;
+//	}
+//	
+//	public void addCondicion(Estados estado) {
+//		this.tiene_condicion.add(estado);
+//	}
+//	
+//	public void removeCondicion(Estados estado) {
+//		if ( this.tiene_condicion.remove(estado) ) {
+//			// Estado quitado
+//		}
+//		else {
+//			// No tenía ese estado
+//		}
+//	}
 	
 	
 	// ENOJOS (enfados)
@@ -152,36 +152,36 @@ public abstract class Seres {
 	}
 	
 	
-	// OBJETOS
+	// OBJETOS	TODO BORRAR
 	
-	public Set<Objetos> getTiene_objeto() {
-		return tiene_objeto;
-	}
-	
-	public void setTiene_objeto(Set<Objetos> tiene_objeto) {
-		this.tiene_objeto = (Set<Objetos>) tiene_objeto;
-	}
-	
-	public void addObjeto(Objetos objeto) {		// TODO REVISAR
-		this.tiene_objeto.add(objeto);
-	}
-	
-	public void addAllObjeto(Set<Objetos> nuevosObjetos) { // TODO REVISAR Yo creo que no es necesario devolver una copia // Para añadir todos los objetos de otro ser Y cuando X mate, robe o aprese a Y
-		this.tiene_objeto.addAll(nuevosObjetos);
-	}
-	
-	public void removeObjeto(Objetos objeto) {	// TODO REVISAR
-		if ( this.tiene_objeto.remove(objeto) ) { 	// El "remove" ya comprueba si está o no el objeto.
-			// Objeto quitado
-		}
-		else {
-			// No tenía ese objeto
-		}
-	}
-	
-	public void removeAllObjeto() {	// TODO REVISAR
-		this.tiene_objeto.clear(); 	// Se borran todos los objetos, cuando le maten, le apresen o le roben
-	}
+//	public Set<Objetos> getTiene_objeto() {
+//		return tiene_objeto;
+//	}
+//	
+//	public void setTiene_objeto(Set<Objetos> tiene_objeto) {
+//		this.tiene_objeto = (Set<Objetos>) tiene_objeto;
+//	}
+//	
+//	public void addObjeto(Objetos objeto) {
+//		this.tiene_objeto.add(objeto);
+//	}
+//	
+//	public void addAllObjeto(Set<Objetos> nuevosObjetos) {
+//		this.tiene_objeto.addAll(nuevosObjetos);
+//	}
+//	
+//	public void removeObjeto(Objetos objeto) {
+//		if ( this.tiene_objeto.remove(objeto) ) {
+//			// Objeto quitado
+//		}
+//		else {
+//			// No tenía ese objeto
+//		}
+//	}
+//	
+//	public void removeAllObjeto() {
+//		this.tiene_objeto.clear();
+//	}
 	
 	
 	

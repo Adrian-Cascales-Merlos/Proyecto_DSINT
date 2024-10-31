@@ -8,8 +8,8 @@ public class Dioses extends Seres {
 	private Set<Seres> da_favor_a = new HashSet<>();
 	private Set<Seres> esta_enojado_con = new HashSet<>();
 	
-	public Dioses(String tiene_nombre, Set<Estados> tiene_condicion) {
-		super(tiene_nombre, tiene_condicion);
+	public Dioses(String tiene_nombre) {
+		super(tiene_nombre);
 		this.addCapacidad(Capacidades.INMORTALIDAD);
 	}
 	
