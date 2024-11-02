@@ -2,7 +2,7 @@
 package reglas
 
 //list any import classes here. // Aquí debemos poner todas las clases involucradas en las reglas
-import dsi.mitologia.Seres;
+import dsi.mitologia.Ser;
 import dsi.mitologia.Estados;
 import dsi.mitologia.Objetos;
 
@@ -14,8 +14,8 @@ rule "Si X mata a Y se queda con los objetos de Y"
     when
         //conditions
     	//Pues cuando se inserte el hecho de X mata a Y
-    	$x : Seres();
-    	$y : Seres();
+    	$x : Ser();
+    	$y : Ser();
     then
         //actions
         modify($x)
@@ -39,8 +39,8 @@ rule "Si X apresa a Y se queda con los objetos de Y"
     when
         //conditions
     	//Pues cuando se inserte el hecho de X aprese a Y
-    	$x : Seres()
-    	$y : Seres()
+    	$x : Ser()
+    	$y : Ser()
     then
         //actions
         modify($x)
@@ -65,7 +65,7 @@ rule "Si X libera a Y entonces Y es libre"
     when
         //conditions
     	//Pues cuando se inserte el hecho de X libera a Y
-    	$y : Seres(tiene_condicion == Estados.APRESADO);
+    	$y : Ser(tiene_condicion == Estados.APRESADO);
     then
         //actions        
         modify($y)
@@ -84,9 +84,9 @@ rule "Si X mata a Y e Y tiene preso a Z entonces X libera a Z"
     when
         //conditions
     	//Pues cuando se inserte el hecho de X mata a Y y este el hecho de que Y apresa a Z
-    	$x : Seres()
-    	$y : Seres()
-    	$z : Seres()
+    	$x : Ser()
+    	$y : Ser()
+    	$z : Ser()
     then
         //actions
         modify($x)
@@ -119,8 +119,8 @@ rule "Si X roba a Y entonces X se queda con todos los objetos de Y"
     when
         //conditions
     	//Pues cuando se inserte el hecho de X roba a Y
-    	$x : Seres()
-    	$y : Seres()
+    	$x : Ser()
+    	$y : Ser()
     then
         //actions
         modify($x)
@@ -143,8 +143,8 @@ rule "Si X roba a Y el objeto Z entonces X se queda con Z"
     when
         //conditions
     	//Pues cuando se inserte el hecho de X roba a Y
-    	$x : Seres()
-    	$y : Seres()
+    	$x : Ser()
+    	$y : Ser()
     	$z : Objetos()
     then
         //actions
