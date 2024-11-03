@@ -1,5 +1,6 @@
 package dsi.mitologia;
 
+// TODO PREGUNTAR EQUIPO
 // Localizado es un clase que indica la relación de localización de un Ser con otro Ser.
 // Cada instancia (objeto Java) de la clase indicará una relación de localización.
 public class Localizado {
